@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            background-color: grey;
+            height: 50px;
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav h1{
+            text-align: center;
+            align-items: center;
+        }
+        .tfield{
+            width: 600px;
+            height: 30px;
+            background-color: white;
+            margin: 10px;
+        }
+        .container{
+            text-align: center;
+            font-size: medium;
+        }
+        .container h6{
+            font-size: medium;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Weather App</h1>
+    </nav>
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input class="tfield" name="city" type="text" placeholder="Search">
+            <button type="submit">Submit</button>
+        </form>
+        {% if data.countrycode %}
+        <h1>{{city}}</h1>
+        <h3>Country code: {{data.countrycode}}</h3>
+        <h6>Coordinate: {{data.coordinate}}</h6>
+        <h6>Temperature: {{data.temp}}</h6>
+        <h6>Pressure: {{data.pressure}}</h6>
+        <h6>Humidity: {{data.Humidity}}</h6>
+        {% endif %}
+    </div>
+
+
+</body>
+</html>
